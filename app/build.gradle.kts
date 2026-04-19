@@ -41,4 +41,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    dependencies {
+        implementation("androidx.constraintlayout:constraintlayout:2.1.4") // Spróbuj tej stabilnej wersji, jeśli 2.2.1 robi problemy
+        implementation("com.google.android.material:material:1.12.0")
+    }
 }

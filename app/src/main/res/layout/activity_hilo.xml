@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,61 +11,211 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
-    <!-- CIEMNOŚĆ (overlay) -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#80000000"/>
-
-    <!-- UI -->
+    <!-- 1. NAGŁÓWEK (GÓRA) -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/headerGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
-
-        <ImageView
-            android:id="@+id/imgCard"
-            android:layout_width="140dp"
-            android:layout_height="200dp"
-            android:layout_marginBottom="20dp"
-            android:src="@android:drawable/ic_menu_help" /> <!-- Dodałem placeholder obrazka -->
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txtInfo"
+            android:id="@+id/txtStage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hi-Lo"
-            android:textSize="26sp"
+            android:text="RUNDA 1"
             android:textColor="#FFFFFF"
-            android:layout_marginBottom="20dp"/>
-
-        <Button
-            android:id="@+id/btnHigh"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="HIGH"
-            android:layout_marginBottom="10dp"/>
-
-        <Button
-            android:id="@+id/btnLow"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="LOW"
-            android:layout_marginBottom="20dp"/>
+            android:textSize="26sp"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="22sp"
-            android:textColor="#FFD700"/>
-
+            android:text="Mnożnik: x1.0"
+            android:textColor="#FFD700"
+            android:textSize="18sp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
     </LinearLayout>
 
-</FrameLayout>
+    <!-- 2. KARTA (ŚRODEK) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="180dp"
+        android:layout_height="260dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerGroup">
+
+        <ImageView
+            android:id="@+id/imgCard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/a1" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- 3. INSTRUKCJA I HISTORIA -->
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="Wybierz kolor karty"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        app:layout_constraintBottom_toTopOf="@+id/layoutHistory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layoutButtonsTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imgPrevCard1"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_margin="4dp"
+            android:background="#33000000"
+            android:visibility="invisible"
+            tools:src="@drawable/a1"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imgPrevCard2"
+            android:layout_width="50dp"
+            android:layout_height="75dp"
+            android:layout_margin="4dp"
+            android:background="#33000000"
+            android:visibility="invisible"
+            tools:src="@drawable/a2"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <!-- 4. GUZIKI (DÓŁ) -->
+    <LinearLayout
+        android:id="@+id/layoutButtonsTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/layoutButtonsBottom">
+
+        <Button
+            android:id="@+id/btnHigh"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/hilo"
+            app:backgroundTint="#80FFFFFF"
+            app:backgroundTintMode="multiply"
+            android:text="OPCJA 1"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLow"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/hilo"
+            app:backgroundTint="#80FFFFFF"
+            app:backgroundTintMode="multiply"
+            android:text="OPCJA 2"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutButtonsBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnCashOut">
+
+        <Button
+            android:id="@+id/btnOption3"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/hilo"
+            app:backgroundTint="#80FFFFFF"
+            app:backgroundTintMode="multiply"
+            android:text="OPCJA 3"
+            android:textColor="#FFFFFF"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnOption4"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/hilo"
+            app:backgroundTint="#80FFFFFF"
+            app:backgroundTintMode="multiply"
+            android:text="OPCJA 4"
+            android:textColor="#FFFFFF"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <!-- 5. WYPŁATA -->
+    <Button
+        android:id="@+id/btnCashOut"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/hilo"
+        app:backgroundTint="#80FFFFFF"
+        app:backgroundTintMode="multiply"
+        android:text="ZABIERZ KASĘ"
+        android:textColor="#FFD700"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

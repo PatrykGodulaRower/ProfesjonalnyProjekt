@@ -1,19 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- TŁO -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- CIEMNA WARSTWA -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"/>
+
+    <!-- GŁÓWNY UKŁAD -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <!-- NAPIS -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:src="@drawable/lasvegas"
+            android:layout_marginBottom="40dp"
+            android:adjustViewBounds="true"/>
+
+        <!-- ROULETTE -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ruleta"
+                android:scaleType="centerCrop"
+                android:alpha="0.7"
+
+                android:clipToOutline="true"/>
+
+            <Button
+                android:id="@+id/btnRoulette"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ROULETTE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
+
+        <!-- BLACKJACK -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/blackjack"
+                android:scaleType="centerCrop"
+                android:alpha="0.7"
+
+                android:clipToOutline="true"/>
+
+            <Button
+                android:id="@+id/btnBlackjack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="BLACKJACK"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
+
+        <!-- HI-LO -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/hilo"
+                android:scaleType="centerCrop"
+                android:alpha="0.7"
+
+                android:clipToOutline="true"/>
+
+            <Button
+                android:id="@+id/btnHiLo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="HI - LO"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:background="@android:color/transparent"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

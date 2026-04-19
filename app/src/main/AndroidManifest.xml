@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".BlackjackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HiloActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RouletteActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

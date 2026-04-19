@@ -122,5 +122,14 @@
         </FrameLayout>
 
     </LinearLayout>
+    <!-- Przykład dla activity_main.xml -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <!-- reszta Twojego kodu -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -10,7 +10,7 @@
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
 
-    <!-- CIEMNOŚĆ -->
+    <!-- CIEMNOŚĆ (overlay) -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,10 +28,13 @@
             android:id="@+id/imgCard"
             android:layout_width="140dp"
             android:layout_height="200dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:src="@android:drawable/ic_menu_help" /> <!-- Dodałem placeholder obrazka -->
 
         <TextView
             android:id="@+id/txtInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Hi-Lo"
             android:textSize="26sp"
             android:textColor="#FFFFFF"
@@ -39,20 +42,22 @@
 
         <Button
             android:id="@+id/btnHigh"
-            android:text="HIGH"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:text="HIGH"
             android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/btnLow"
-            android:text="LOW"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:text="LOW"
             android:layout_marginBottom="20dp"/>
 
         <TextView
             android:id="@+id/txtResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text=""
             android:textSize="22sp"
             android:textColor="#FFD700"/>

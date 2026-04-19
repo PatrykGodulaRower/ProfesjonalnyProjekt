@@ -27,5 +27,13 @@
             android:textColor="#FFFFFF"/>
 
     </LinearLayout>
+    <!-- Example of what the root tag in activity_blackjack.xml should look like -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <!-- ... rest of your layout ... -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
